@@ -11,8 +11,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -76,5 +78,30 @@ public class UserResource {
             Logger.getLogger(UserResource.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;        
+    }
+    
+    
+    @DELETE
+    @Path("{user_name}")   
+    public void delete(@PathParam("user_name")String user_name){
+        //Método que borra los elementos
+        try {
+            DaoUsers.getIntanceUsers().delete(user_name);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @PUT
+    @Path("{user_name}")
+    public void update (@PathParam("user_name")String user_name, Users users){
+        //Metodo encargado de actualizar registros
+        
+        users.setUser_name(user_name);
+        try {
+            DaoUsers.getIntanceUsers().update(users);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
