@@ -5,26 +5,26 @@
  */
 package pruebas;
 
-import com.innovagenesis.aplicaciones.android.dao.DaoUsers;
+import com.innovagenesis.aplicaciones.android.dao.Conexion;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import om.innovagenesis.aplicaciones.android.entidades.Users;
 
 /**
  *
  * @author alexi
  */
-public class TestUsersInsertar {
+public class TestConection {
     
     public static void main(String[] args) {
         
-        DaoUsers daoUsers = DaoUsers.getIntanceUsers();
-        //Prueba de insertar datos
         try {
-            daoUsers.insert(new Users("Chino","1234"));
+            if(Conexion.getIntance().existeConexion()){
+                System.out.println("Conexion Establecida");
+            }
         } catch (SQLException ex) {
-            Logger.getLogger(TestUsersInsertar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestConection.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error al realizar la conexion");
         }
     }
     
