@@ -95,8 +95,7 @@ public class UserResource {
     @PUT
     @Path("{user_name}")
     public void update (@PathParam("user_name")String user_name, Users users){
-        //Metodo encargado de actualizar registros
-        
+        //Metodo encargado de actualizar registros        
         users.setUser_name(user_name);
         try {
             DaoUsers.getIntanceUsers().update(users);
