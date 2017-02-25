@@ -9,23 +9,24 @@ import com.innovagenesis.aplicaciones.android.dao.DaoUsers;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import om.innovagenesis.aplicaciones.android.entidades.Users;
 
 /**
  *
  * @author alexi
  */
-public class TestUsersInsertar {
+public class TestSearchUsers {
     
     public static void main(String[] args) {
         
         DaoUsers daoUsers = DaoUsers.getIntanceUsers();
-        //Prueba de insertar datos
+        //Busca un usuario
         try {
-            daoUsers.insert(new Users("Chino","1234"));
+            System.out.println(daoUsers.search("Alex", "Chichis"));
         } catch (SQLException ex) {
-            Logger.getLogger(TestUsersInsertar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestSearchUsers.class.getName()).log(Level.SEVERE, null, ex);
         }
+;
+        
+        
     }
-    
 }
