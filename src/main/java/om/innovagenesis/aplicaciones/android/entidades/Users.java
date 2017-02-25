@@ -55,10 +55,6 @@ public class Users {
         this.user_pass = user_pass;
     }
 
-    public void getUser_id(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Override
     //Metodo toString
     public String toString() {

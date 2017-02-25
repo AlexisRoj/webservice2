@@ -22,7 +22,7 @@ public class TestInsertarUsers {
         DaoUsers daoUsers = DaoUsers.getIntanceUsers();
         //Prueba de insertar datos
         try {
-            daoUsers.insert(new Users("Chino","1234"));
+            daoUsers.insert(new Users("Chinosx","1234"));
         } catch (SQLException ex) {
             Logger.getLogger(TestInsertarUsers.class.getName()).log(Level.SEVERE, null, ex);
         }
