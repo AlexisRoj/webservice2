@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import om.innovagenesis.aplicaciones.android.entidades.Users;
+import com.innovagenesis.aplicaciones.android.entidades.Users;
 
 /**
  *

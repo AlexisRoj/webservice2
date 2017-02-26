@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package om.innovagenesis.aplicaciones.android.entidades;
+package com.innovagenesis.aplicaciones.android.entidades;
 
 /**
  * Clase para ingresos de usuarios al sistema
