@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -51,15 +52,41 @@ public class DonantesResource {
         }
     }
     @GET
-    @Path("{donantes_ced}")
+    @Path("{donante_ced}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Donantes getDonantesbyId(@PathParam("donantes_ced")int donantes_ced){
+    public Donantes getDonantesbyId(@PathParam("donante_ced")int donante_ced){
         //Método encargado de buscar por id
         try {
-            return DaoDonantes.getInstanceDonantes().searchUsercedDonante(donantes_ced);
+            return DaoDonantes.getInstanceDonantes().searchUsercedDonante(donante_ced);
         } catch (SQLException ex) {
             Logger.getLogger(DonantesResource.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    @DELETE
+    @Path("{donante_ced}")
+    public void delete(@PathParam("donante_ced")int donante_ced){
+        //Método encargado de borrar un donante
+        try {
+            DaoDonantes.getInstanceDonantes().deleteDonante(donante_ced);
+        } catch (SQLException ex) {
+            Logger.getLogger(DonantesResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    @PUT
+    @Path("{donante_ced}")
+    public void update(@PathParam("donante_ced")int donante_ced, Donantes donantes){
+        //Metodo encargado de actualizar un donante
+        donantes.setDonante_ced(donante_ced);
+        
+        try {
+            DaoDonantes.getInstanceDonantes().updateDonante(donantes);
+        } catch (SQLException ex) {
+            Logger.getLogger(DonantesResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
 }
