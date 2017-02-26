@@ -9,7 +9,7 @@ import com.innovagenesis.aplicaciones.android.dao.DaoUsers;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import om.innovagenesis.aplicaciones.android.entidades.Users;
+import com.innovagenesis.aplicaciones.android.entidades.Users;
 
 /**
  *
