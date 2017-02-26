@@ -31,7 +31,7 @@ public class DonantesResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Donantes> get(){
-        //Método encargado de listar
+        //Método encargado de listar los donantes
         try {
             return DaoDonantes.getInstanceDonantes().listDonante();
         } catch (SQLException ex) {
