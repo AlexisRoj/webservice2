@@ -23,7 +23,7 @@ public class TestDonantesInsert {
         
         DaoDonantes daoDonantes = DaoDonantes.getInstanceDonantes();
         
-        Donantes donantes = new Donantes(11021000,"Felicia","Hidalgo",50,"AB+",75,160);
+        Donantes donantes = new Donantes(11021000,"Felicia","Hidalgo",50,"A","RH+",75,160);
         
         try {
             daoDonantes.insertDonante(donantes);

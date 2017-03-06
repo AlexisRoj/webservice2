@@ -15,44 +15,50 @@ public class Donantes {
     private String donante_nombre;
     private String donante_apellido;
     private int donante_edad;
-    private String donante_tipo_sangre;
+    private String donante_tipo;
+    private String donante_factor;
     private int donante_peso;
     private int donante_estatura;
 
     public Donantes() {
     }
 
-    public Donantes(int donante_ced, String donante_nombre, 
-            String donante_apellido, int donante_edad, 
-            String donante_tipo_sangre, int donante_peso, 
+    public Donantes(int donante_ced, 
+            String donante_nombre, 
+            String donante_apellido, 
+            int donante_edad, 
+            String donante_tipo, 
+            String donante_factor, 
+            int donante_peso, 
             int donante_estatura) {
-        //Constructor para prueba de update/insert        
+        //Constructor insertar donante
         this.donante_ced = donante_ced;
         this.donante_nombre = donante_nombre;
         this.donante_apellido = donante_apellido;
         this.donante_edad = donante_edad;
-        this.donante_tipo_sangre = donante_tipo_sangre;
+        this.donante_tipo = donante_tipo;
+        this.donante_factor = donante_factor;
         this.donante_peso = donante_peso;
         this.donante_estatura = donante_estatura;
     }
 
     public Donantes(String donante_nombre, 
-            //Constructor para update
             String donante_apellido, 
             int donante_edad, 
-            String donante_tipo_sangre, 
+            String donante_tipo, 
+            String donante_factor, 
             int donante_peso, 
             int donante_estatura) {
+        //Constructor actualizar donantes
         this.donante_nombre = donante_nombre;
         this.donante_apellido = donante_apellido;
         this.donante_edad = donante_edad;
-        this.donante_tipo_sangre = donante_tipo_sangre;
+        this.donante_tipo = donante_tipo;
+        this.donante_factor = donante_factor;
         this.donante_peso = donante_peso;
         this.donante_estatura = donante_estatura;
     }
-    
-    
-    
+
     public int getDonante_ced() {
         return donante_ced;
     }
@@ -85,12 +91,20 @@ public class Donantes {
         this.donante_edad = donante_edad;
     }
 
-    public String getDonante_tipo_sangre() {
-        return donante_tipo_sangre;
+    public String getDonante_tipo() {
+        return donante_tipo;
     }
 
-    public void setDonante_tipo_sangre(String donante_tipo_sangre) {
-        this.donante_tipo_sangre = donante_tipo_sangre;
+    public void setDonante_tipo(String donante_tipo) {
+        this.donante_tipo = donante_tipo;
+    }
+
+    public String getDonante_factor() {
+        return donante_factor;
+    }
+
+    public void setDonante_factor(String donante_factor) {
+        this.donante_factor = donante_factor;
     }
 
     public int getDonante_peso() {
@@ -107,16 +121,25 @@ public class Donantes {
 
     public void setDonante_estatura(int donante_estatura) {
         this.donante_estatura = donante_estatura;
-    }  
+    }
 
     @Override
     public String toString() {
-        return "Donantes{" + "donante_ced=" + donante_ced + ", donante_nombre=" 
-                + donante_nombre + ", donante_apellido=" + donante_apellido + 
-                ", donante_edad=" + donante_edad + ", donante_tipo_sangre=" + 
-                donante_tipo_sangre + ", donante_peso=" + donante_peso + 
-                ", donante_estatura=" + donante_estatura + '}'+"\n\n";
+        return "Donantes{" + "donante_ced=" + donante_ced + 
+                ", donante_nombre=" + donante_nombre + 
+                ", donante_apellido=" + donante_apellido + 
+                ", donante_edad=" + donante_edad + 
+                ", donante_tipo=" + donante_tipo + 
+                ", donante_factor=" + donante_factor + 
+                ", donante_peso=" + donante_peso + 
+                ", donante_estatura=" + donante_estatura + '}';
     }
+
+    
+    
+    
+}    
+
      
     
-}
+

@@ -39,7 +39,8 @@ public class DaoDonantes implements IDAOD<Donantes>{
         donantes.setDonante_nombre(set.getString("donante_nombre"));
         donantes.setDonante_apellido(set.getString("donante_apellido"));
         donantes.setDonante_edad(set.getInt("donante_edad"));
-        donantes.setDonante_tipo_sangre(set.getString("donante_tipo_sangre"));
+        donantes.setDonante_tipo(set.getString("donante_tipo"));
+        donantes.setDonante_factor(set.getString("donante_factor"));
         donantes.setDonante_peso(set.getInt("donante_peso"));
         donantes.setDonante_estatura(set.getInt("donante_estatura"));
 
@@ -63,11 +64,12 @@ public class DaoDonantes implements IDAOD<Donantes>{
                 + "DONANTE_NOMBRE,"
                 + "DONANTE_APELLIDO,"
                 + "DONANTE_EDAD,"
-                + "DONANTE_TIPO_SANGRE,"
+                + "DONANTE_TIPO,"
+                + "DONANTE_FACTOR,"
                 + "DONANTE_PESO,"
                 + "DONANTE_ESTATURA)"
                 + "VALUES "
-                + "(?,?,?,?,?,?,?)";
+                + "(?,?,?,?,?,?,?,?)";
 
         if (insertDonante == null) {
             insertDonante = Conexion.getIntance().getCon().prepareStatement(query);
@@ -77,9 +79,10 @@ public class DaoDonantes implements IDAOD<Donantes>{
         insertDonante.setString(2, entidad.getDonante_nombre());
         insertDonante.setString(3, entidad.getDonante_apellido());
         insertDonante.setInt(4, entidad.getDonante_edad());
-        insertDonante.setString(5, entidad.getDonante_tipo_sangre());
-        insertDonante.setInt(6, entidad.getDonante_peso());
-        insertDonante.setInt(7, entidad.getDonante_estatura());
+        insertDonante.setString(5, entidad.getDonante_tipo());
+        insertDonante.setString(6, entidad.getDonante_factor());
+        insertDonante.setInt(7, entidad.getDonante_peso());
+        insertDonante.setInt(8, entidad.getDonante_estatura());
         insertDonante.executeUpdate();
     }
 
@@ -121,7 +124,8 @@ public class DaoDonantes implements IDAOD<Donantes>{
                 + "DONANTE_NOMBRE = ?,"
                 + "DONANTE_APELLIDO = ?,"
                 + "DONANTE_EDAD = ?,"
-                + "DONANTE_TIPO_SANGRE = ?,"
+                + "DONANTE_TIPO = ?,"
+                + "DONANTE_FACTOR = ?,"
                 + "DONANTE_PESO = ?,"
                 + "DONANTE_ESTATURA = ?"
                 + " WHERE DONANTE_CED = ?";
@@ -133,10 +137,11 @@ public class DaoDonantes implements IDAOD<Donantes>{
         updateDonante.setString(1, entidad.getDonante_nombre());
         updateDonante.setString(2, entidad.getDonante_apellido());
         updateDonante.setInt(3, entidad.getDonante_edad());
-        updateDonante.setString(4, entidad.getDonante_tipo_sangre());
-        updateDonante.setInt(5, entidad.getDonante_peso());
-        updateDonante.setInt(6, entidad.getDonante_estatura());
-        updateDonante.setInt(7, entidad.getDonante_ced());
+        updateDonante.setString(4, entidad.getDonante_tipo());
+        updateDonante.setString(5, entidad.getDonante_factor());
+        updateDonante.setInt(6, entidad.getDonante_peso());
+        updateDonante.setInt(7, entidad.getDonante_estatura());
+        updateDonante.setInt(8, entidad.getDonante_ced());
         updateDonante.executeUpdate();
     }
 
