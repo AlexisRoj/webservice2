@@ -54,10 +54,10 @@ public class DonantesResource {
     @GET
     @Path("{donante_ced}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Donantes getDonantesbyId(@PathParam("donante_ced")int donante_ced){
+    public List<Donantes> getDonantesbyId(@PathParam("donante_ced")String donante_ced){
         //Método encargado de buscar por id
         try {
-            return DaoDonantes.getInstanceDonantes().searchUsercedDonante(donante_ced);
+            return DaoDonantes.getInstanceDonantes().searchDonanteLike(donante_ced);
         } catch (SQLException ex) {
             Logger.getLogger(DonantesResource.class.getName()).log(Level.SEVERE, null, ex);
         }

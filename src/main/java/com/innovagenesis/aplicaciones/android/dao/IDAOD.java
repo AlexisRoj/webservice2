@@ -20,7 +20,9 @@ public interface IDAOD<T> {
 
     List<T> listDonante() throws SQLException;
 
-    T searchUsercedDonante(int donante_ced) throws SQLException;
+    //T searchUsercedDonante(int donante_ced) throws SQLException;
+    
+    List<T> searchDonanteLike(String donante_ced) throws SQLException;
 
     void updateDonante(T entidad) throws SQLException;
 

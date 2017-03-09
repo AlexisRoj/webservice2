@@ -21,7 +21,7 @@ public class TestDaoDonantesSearch {
         DaoDonantes daoDonantes = DaoDonantes.getInstanceDonantes();
         
         try {
-            System.out.println(daoDonantes.searchUsercedDonante(2));
+            System.out.println(daoDonantes.searchDonanteLike("2"));
         } catch (SQLException ex) {
             Logger.getLogger(TestDaoDonantesSearch.class.getName()).log(Level.SEVERE, null, ex);
         }

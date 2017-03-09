@@ -145,21 +145,60 @@ public class DaoDonantes implements IDAOD<Donantes>{
         updateDonante.executeUpdate();
     }
 
+//    @Override
+//    public Donantes searchUsercedDonante(int donante_ced) throws SQLException {
+//        //Método encargado de realizar la consulta por numero de cedula
+//        query = "SELECT * FROM TBL_DONANTES WHERE DONANTE_CED = ?";
+//
+//        if (searchDonantes == null) {
+//            searchDonantes = Conexion.getIntance().getCon().prepareStatement(query);
+//        }
+//
+//        searchDonantes.setInt(1, donante_ced);
+//        ResultSet set = searchDonantes.executeQuery();
+//
+//        return set != null && set.next() ? load(set) : null;
+//
+//    }
+//      
+//    @Override
+//    public Donantes searchDonanteLike(String donante_ced) throws SQLException {
+//        //Método encargado de realizar la consulta por numero de cedula
+//        query = "SELECT * FROM TBL_DONANTES WHERE DONANTE_CED LIKE ?";
+//
+//        if (searchDonantes == null) {
+//            searchDonantes = Conexion.getIntance().getCon().prepareStatement(query);
+//        }
+//
+//        searchDonantes.setString(1, "%" + donante_ced + "%");
+//        ResultSet set = searchDonantes.executeQuery();
+//
+//        return set != null && set.next() ? load(set) : null;
+//
+//    }
+    
+    
     @Override
-    public Donantes searchUsercedDonante(int donante_ced) throws SQLException {
-        //Método encargado de realizar la consulta por numero de cedula
-        query = "SELECT * FROM TBL_DONANTES WHERE DONANTE_CED = ?";
+    public List<Donantes> searchDonanteLike(String donante_ced) throws SQLException {
+        //Encargado de recorrer toda la lista
+        query = "SELECT * FROM TBL_DONANTES WHERE DONANTE_CED LIKE ?";
 
         if (searchDonantes == null) {
             searchDonantes = Conexion.getIntance().getCon().prepareStatement(query);
         }
-
-        searchDonantes.setInt(1, donante_ced);
+        
+        searchDonantes.setString(1, "%" + donante_ced + "%");
+        
         ResultSet set = searchDonantes.executeQuery();
+        ArrayList<Donantes> resultDonantes;
+        resultDonantes = new ArrayList<>();
 
-        return set != null && set.next() ? load(set) : null;
-
+        while (set.next()) {
+            //Recorre la base de datos
+            resultDonantes.add(load(set));
+        }
+        return resultDonantes;
     }
-      
+    
     
 }
